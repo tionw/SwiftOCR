@@ -72,6 +72,13 @@
                                     <action selector="saveData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRv-c6-Z5R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-Fe-DD4">
+                                <rect key="frame" x="120" y="627" width="135" height="30"/>
+                                <state key="normal" title="Translate to English"/>
+                                <connections>
+                                    <action selector="translatePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aA7-4G-bNR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -82,11 +89,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="npl-oD-OkN" secondAttribute="trailing" constant="16" id="K5Y-Wv-WUj"/>
                             <constraint firstItem="KFa-U3-eLR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="R6j-U8-0Xg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MMK-zY-Y5J" secondAttribute="trailing" constant="16" id="TXj-mk-aZX"/>
+                            <constraint firstItem="sO2-Fe-DD4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U8D-xc-oCf"/>
                             <constraint firstItem="Fru-4U-vbB" firstAttribute="top" secondItem="KFa-U3-eLR" secondAttribute="bottom" constant="16" id="VKN-N2-wZS"/>
                             <constraint firstItem="LAa-QT-Vzh" firstAttribute="top" secondItem="KRq-hA-d0Z" secondAttribute="bottom" constant="10" id="Vlp-bX-v4B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b3v-wA-m8B" secondAttribute="bottom" constant="48" id="Vro-0J-Fau"/>
                             <constraint firstItem="KRq-hA-d0Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YWC-8w-TbY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="meb-1o-2iA" secondAttribute="bottom" constant="48" id="Z1h-b2-Eyr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sO2-Fe-DD4" secondAttribute="bottom" constant="10" id="ceL-rg-N8C"/>
                             <constraint firstItem="npl-oD-OkN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="dm5-JP-iDD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KRq-hA-d0Z" secondAttribute="trailing" constant="16" id="gma-Ku-ZRO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fru-4U-vbB" secondAttribute="trailing" constant="24" id="hAA-oe-GHV"/>
@@ -116,12 +125,13 @@
                         <outlet property="saveDataPressed" destination="MMK-zY-Y5J" id="O5W-9o-sPF"/>
                         <outlet property="stringTest" destination="LAa-QT-Vzh" id="BKJ-Mo-sbQ"/>
                         <outlet property="textLabel" destination="KRq-hA-d0Z" id="fcS-OH-jem"/>
+                        <outlet property="translateButton" destination="sO2-Fe-DD4" id="sTt-0q-pvu"/>
                         <segue destination="TFt-ai-C5F" kind="show" identifier="settingsSegue" id="f00-9F-96I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="329"/>
+            <point key="canvasLocation" x="1540" y="284"/>
         </scene>
         <!--Saved Data-->
         <scene sceneID="2OV-xF-nli">
@@ -189,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IIJ-IE-K6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3825" y="134"/>
+            <point key="canvasLocation" x="4142" y="200"/>
         </scene>
         <!--Table Detail View Controller-->
         <scene sceneID="AZ8-ya-WrY">
@@ -221,7 +231,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6O-cN-6UJ">
-                                <rect key="frame" x="16" y="605" width="343" height="30"/>
+                                <rect key="frame" x="16" y="617" width="343" height="30"/>
                                 <state key="normal" title="Delete Data">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -230,30 +240,40 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="some text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hDd-o8-fGP">
-                                <rect key="frame" x="16" y="421" width="343" height="176"/>
+                                <rect key="frame" x="16" y="421" width="343" height="138"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58i-Nr-hfO">
+                                <rect key="frame" x="16" y="579" width="343" height="30"/>
+                                <state key="normal" title="Translate To English"/>
+                                <connections>
+                                    <action selector="translatePressed:" destination="zMO-39-GeD" eventType="touchUpInside" id="t1A-r7-Cbk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="58i-Nr-hfO" firstAttribute="top" secondItem="hDd-o8-fGP" secondAttribute="bottom" constant="20" id="0Fe-Rc-OEr"/>
+                            <constraint firstItem="58i-Nr-hfO" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="4j0-3n-JM8"/>
                             <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="19i-wL-ZZ5" secondAttribute="trailing" constant="16" id="4pb-vo-pbn"/>
                             <constraint firstItem="36b-zq-7KJ" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="6mm-vf-uZt"/>
-                            <constraint firstItem="k6O-cN-6UJ" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="7M5-uD-pCr"/>
+                            <constraint firstItem="k6O-cN-6UJ" firstAttribute="top" secondItem="58i-Nr-hfO" secondAttribute="bottom" constant="8" id="HoP-lG-yLl"/>
                             <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="36b-zq-7KJ" secondAttribute="trailing" constant="16" id="MEW-2c-gym"/>
+                            <constraint firstItem="k6O-cN-6UJ" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="NX0-gc-4I1"/>
                             <constraint firstItem="19i-wL-ZZ5" firstAttribute="top" secondItem="bCk-Wk-QPM" secondAttribute="bottom" constant="8" id="RXd-vg-Z0G"/>
                             <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="bCk-Wk-QPM" secondAttribute="trailing" constant="16" id="SFA-hv-Eyl"/>
                             <constraint firstItem="bCk-Wk-QPM" firstAttribute="top" secondItem="Bvc-Hk-0Ev" secondAttribute="top" constant="14" id="VI0-dg-sMf"/>
+                            <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="58i-Nr-hfO" secondAttribute="trailing" constant="16" id="Vc6-kn-Bya"/>
                             <constraint firstItem="hDd-o8-fGP" firstAttribute="top" secondItem="36b-zq-7KJ" secondAttribute="bottom" constant="8" id="dP9-Pw-Mj0"/>
                             <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="hDd-o8-fGP" secondAttribute="trailing" constant="16" id="daQ-3m-SMI"/>
-                            <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="bottom" secondItem="k6O-cN-6UJ" secondAttribute="bottom" constant="32" id="efp-S8-Mfv"/>
                             <constraint firstItem="bCk-Wk-QPM" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="hcx-5T-b4m"/>
                             <constraint firstItem="hDd-o8-fGP" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="iku-01-FhG"/>
                             <constraint firstItem="36b-zq-7KJ" firstAttribute="top" secondItem="19i-wL-ZZ5" secondAttribute="bottom" constant="8" id="j0e-uD-PWi"/>
+                            <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="k6O-cN-6UJ" secondAttribute="trailing" constant="16" id="llP-yP-NeK"/>
                             <constraint firstItem="19i-wL-ZZ5" firstAttribute="leading" secondItem="Bvc-Hk-0Ev" secondAttribute="leading" constant="16" id="vdV-YC-GD5"/>
-                            <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="trailing" secondItem="k6O-cN-6UJ" secondAttribute="trailing" constant="16" id="xTq-a3-ghs"/>
-                            <constraint firstItem="k6O-cN-6UJ" firstAttribute="top" secondItem="hDd-o8-fGP" secondAttribute="bottom" constant="8" id="zfC-fZ-yKO"/>
+                            <constraint firstItem="Bvc-Hk-0Ev" firstAttribute="bottom" secondItem="k6O-cN-6UJ" secondAttribute="bottom" constant="20" id="zQF-ki-SyD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bvc-Hk-0Ev"/>
                     </view>
@@ -276,11 +296,12 @@
                         <outlet property="langLabel" destination="19i-wL-ZZ5" id="nN3-8x-0I0"/>
                         <outlet property="textLabel" destination="hDd-o8-fGP" id="0ni-0A-itX"/>
                         <outlet property="titleLabel" destination="bCk-Wk-QPM" id="beI-qQ-MyC"/>
+                        <outlet property="translateButton" destination="58i-Nr-hfO" id="vDW-rO-kkE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkG-J4-Ij0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4775" y="263"/>
+            <point key="canvasLocation" x="5253.6000000000004" y="212.74362818590706"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3qx-kp-rAT">
@@ -433,7 +454,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcq-1R-hvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3183" y="750"/>
+            <point key="canvasLocation" x="2770" y="362"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SjU-Fy-anR">

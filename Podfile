@@ -16,4 +16,5 @@ target 'FinalProject' do
     pod 'GooglePlacePicker'
     pod 'GoogleMaps'
     pod 'SDWebImage', '~> 5.0'
+    pod 'SwiftGoogleTranslate'
 end

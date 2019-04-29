@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SwiftGoogleTranslate
 
 class TableDetailViewController: UIViewController {
 
+    @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var textLabel: UITextView!
     @IBOutlet weak var imageLabel: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +23,8 @@ class TableDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        translateButton.isHidden = true
+        translateButton.isEnabled = true
         titleLabel.text = dataInfo.name
         textLabel.text = dataInfo.text
         let strBase64 = dataInfo.image
@@ -69,6 +73,9 @@ class TableDetailViewController: UIViewController {
         default:
             langLabel.text = "Transcribed From English"
         }
+        if dataInfo.lang != "eng"{
+            translateButton.isHidden = false
+        }
     }
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
@@ -78,6 +85,31 @@ class TableDetailViewController: UIViewController {
         UIPasteboard.general.string = self.textLabel.text
         copyText.title = "Copied!"
         copyText.isEnabled = false
+    }
+    @IBAction func translatePressed(_ sender: UIButton) {
+        var langu = ""
+        SwiftGoogleTranslate.shared.detect(self.textLabel.text!) { (detections, error) in
+            if let detections = detections {
+                for detection in detections {
+                    print(detection.language)
+                    langu = detection.language
+                    
+                }
+            }
+        }
+        if langu != "en"{
+            SwiftGoogleTranslate.shared.translate(self.textLabel.text!, "en", langu) { (text, error) in
+                if let t = text {
+                    print(t)
+                    DispatchQueue.main.async {
+                        self.textLabel.text = t
+                    }
+                }
+            }
+        } else {
+            self.translateButton.setTitle("Text is already in English!", for: .normal)
+        }
+        self.translateButton.isEnabled = false
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         dataInfo.deleteData{ (success) in

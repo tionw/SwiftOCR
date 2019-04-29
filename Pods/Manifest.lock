@@ -140,6 +140,7 @@ PODS:
   - SDWebImage (5.0.1):
     - SDWebImage/Core (= 5.0.1)
   - SDWebImage/Core (5.0.1)
+  - SwiftGoogleTranslate (0.2.1)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -153,6 +154,7 @@ DEPENDENCIES:
   - GooglePlacePicker
   - GooglePlaces
   - SDWebImage (~> 5.0)
+  - SwiftGoogleTranslate
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -182,6 +184,7 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - SDWebImage
+    - SwiftGoogleTranslate
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -210,8 +213,9 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   SDWebImage: 27dd2c9ea07a2252f94557c9fbb6105ee94b74c9
+  SwiftGoogleTranslate: 96960d3548e800e15b347518afca546d2edc8519
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: ed76a0f87a209d8a63f1b2efdbfda7e4003a841b
+PODFILE CHECKSUM: 8b92b0219d2fd567888309ea8350891bba4d369e
 
 COCOAPODS: 1.6.1

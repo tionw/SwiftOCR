@@ -12,8 +12,10 @@ import SwiftyJSON
 import FirebaseUI
 import Firebase
 import GoogleSignIn
+import SwiftGoogleTranslate
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var copyText: UIButton!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var saveDataPressed: UIButton!
@@ -37,6 +39,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
+        self.translateButton.isHidden = true
+        self.translateButton.isEnabled = true
         self.copyText.isHidden = true
         self.copyText.isEnabled = true
         self.copyText.setTitle("Copy Text", for: .normal)
@@ -188,6 +192,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if self.stringTest.text==""{
             self.stringTest.text = "LOADING..."
         }
+        self.translateButton.isHidden = false
+        self.translateButton.isEnabled = true
         self.copyText.isHidden = false
         self.copyText.isEnabled = true
         self.copyText.setTitle("Copy Text", for: .normal)
@@ -260,6 +266,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else{
             showAlert(title: "Camera Not Available", message: "There is no camera available on this device")
         }
+    }
+    @IBAction func translatePressed(_ sender: UIButton) {
+        
+            var langu = ""
+            SwiftGoogleTranslate.shared.detect(self.stringTest.text!) { (detections, error) in
+                if let detections = detections {
+                    for detection in detections {
+                        print(detection.language)
+                        langu = detection.language
+
+                    }
+                }
+            }
+            if langu != "en"{
+                SwiftGoogleTranslate.shared.translate(self.stringTest.text!, "en", langu) { (text, error) in
+                    if let t = text {
+                        print(t)
+                        DispatchQueue.main.async {
+                            self.stringTest.text = t
+                        }
+                    }
+                }
+            } else {
+                self.translateButton.setTitle("Text is already in English!", for: .normal)
+            }
+            self.translateButton.isEnabled = false
+        
     }
     
     @IBAction func choosePic(_ sender: UIButton) {
