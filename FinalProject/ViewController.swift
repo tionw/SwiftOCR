@@ -14,6 +14,7 @@ import Firebase
 import GoogleSignIn
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    @IBOutlet weak var copyText: UIButton!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var saveDataPressed: UIButton!
     @IBOutlet weak var stringTest: UITextView!
@@ -36,6 +37,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         authUI = FUIAuth.defaultAuthUI()
         authUI?.delegate = self
+        self.copyText.isHidden = true
+        self.copyText.isEnabled = true
+        self.copyText.setTitle("Copy Text", for: .normal)
         self.saveDataPressed.isHidden = true
         self.saveDataPressed.isEnabled = true
         self.stringTest.textAlignment = NSTextAlignment.center
@@ -184,6 +188,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if self.stringTest.text==""{
             self.stringTest.text = "LOADING..."
         }
+        self.copyText.isHidden = false
+        self.copyText.isEnabled = true
+        self.copyText.setTitle("Copy Text", for: .normal)
         self.textLabel.isHidden = false
         self.stringTest.textAlignment = NSTextAlignment.left
         self.saveDataPressed.isHidden = false
@@ -196,6 +203,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func copyTextPressed(_ sender: UIButton) {
+        UIPasteboard.general.string = self.stringTest.text
+        copyText.setTitle("Copied!", for: .normal)
+        copyText.isEnabled = false
     }
     
     func showAlert(title: String, message:String) {

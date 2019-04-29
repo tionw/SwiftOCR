@@ -15,6 +15,7 @@ class TableDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var langLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var copyText: UIBarButtonItem!
     
     var dataInfo: DataInfo!
     
@@ -27,6 +28,9 @@ class TableDetailViewController: UIViewController {
         let dataDecoded = Data(base64Encoded: strBase64, options: .ignoreUnknownCharacters)!
         let decodedimage = UIImage(data: dataDecoded)
         imageLabel.image = decodedimage
+        
+        copyText.title = "Copy Text"
+        copyText.isEnabled = true
         switch dataInfo.lang {
         case "eng":
             langLabel.text = "Transcribed From English"
@@ -69,6 +73,11 @@ class TableDetailViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    @IBAction func copyTextPressed(_ sender: UIBarButtonItem) {
+        UIPasteboard.general.string = self.textLabel.text
+        copyText.title = "Copied!"
+        copyText.isEnabled = false
     }
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         dataInfo.deleteData{ (success) in

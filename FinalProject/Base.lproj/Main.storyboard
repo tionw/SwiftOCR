@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-wA-m8B">
-                                <rect key="frame" x="130" y="571" width="115" height="30"/>
+                                <rect key="frame" x="130" y="589" width="115" height="30"/>
                                 <state key="normal" title="View Saved Data"/>
                                 <connections>
                                     <action selector="viewSaved:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aUz-KF-JGA"/>
@@ -47,7 +47,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Take a Picture or Choose a Picture to get started. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-QT-Vzh">
-                                <rect key="frame" x="16" y="423" width="343" height="132"/>
+                                <rect key="frame" x="16" y="423" width="343" height="146"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -58,8 +58,15 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meb-1o-2iA">
+                                <rect key="frame" x="16" y="589" width="69" height="30"/>
+                                <state key="normal" title="Copy Text"/>
+                                <connections>
+                                    <action selector="copyTextPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ult-RI-IXj"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMK-zY-Y5J">
-                                <rect key="frame" x="153" y="617" width="69" height="30"/>
+                                <rect key="frame" x="290" y="589" width="69" height="30"/>
                                 <state key="normal" title="Save Data"/>
                                 <connections>
                                     <action selector="saveData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRv-c6-Z5R"/>
@@ -69,21 +76,23 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KRq-hA-d0Z" firstAttribute="top" secondItem="Fru-4U-vbB" secondAttribute="bottom" constant="16" id="749-bi-Itz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MMK-zY-Y5J" secondAttribute="bottom" constant="48" id="9YL-z3-z7Q"/>
                             <constraint firstItem="KFa-U3-eLR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Ext-0t-ZmL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MMK-zY-Y5J" secondAttribute="bottom" constant="20" id="FrD-Qp-PeA"/>
+                            <constraint firstItem="b3v-wA-m8B" firstAttribute="top" secondItem="LAa-QT-Vzh" secondAttribute="bottom" constant="20" id="IAe-R0-DUk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="npl-oD-OkN" secondAttribute="trailing" constant="16" id="K5Y-Wv-WUj"/>
                             <constraint firstItem="KFa-U3-eLR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="R6j-U8-0Xg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MMK-zY-Y5J" secondAttribute="trailing" constant="16" id="TXj-mk-aZX"/>
                             <constraint firstItem="Fru-4U-vbB" firstAttribute="top" secondItem="KFa-U3-eLR" secondAttribute="bottom" constant="16" id="VKN-N2-wZS"/>
                             <constraint firstItem="LAa-QT-Vzh" firstAttribute="top" secondItem="KRq-hA-d0Z" secondAttribute="bottom" constant="10" id="Vlp-bX-v4B"/>
-                            <constraint firstItem="b3v-wA-m8B" firstAttribute="top" secondItem="LAa-QT-Vzh" secondAttribute="bottom" constant="16" id="WZ6-Mk-awf"/>
-                            <constraint firstItem="MMK-zY-Y5J" firstAttribute="top" secondItem="b3v-wA-m8B" secondAttribute="bottom" constant="16" id="XQK-bI-3pw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="b3v-wA-m8B" secondAttribute="bottom" constant="48" id="Vro-0J-Fau"/>
                             <constraint firstItem="KRq-hA-d0Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YWC-8w-TbY"/>
-                            <constraint firstItem="MMK-zY-Y5J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z2x-W1-jnN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="meb-1o-2iA" secondAttribute="bottom" constant="48" id="Z1h-b2-Eyr"/>
                             <constraint firstItem="npl-oD-OkN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="dm5-JP-iDD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KRq-hA-d0Z" secondAttribute="trailing" constant="16" id="gma-Ku-ZRO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fru-4U-vbB" secondAttribute="trailing" constant="24" id="hAA-oe-GHV"/>
                             <constraint firstItem="Fru-4U-vbB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="hnO-Un-Qsy"/>
-                            <constraint firstItem="b3v-wA-m8B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lS1-gj-33W"/>
+                            <constraint firstItem="meb-1o-2iA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="l8l-Rz-bap"/>
+                            <constraint firstItem="b3v-wA-m8B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o0R-Zk-foW"/>
                             <constraint firstItem="LAa-QT-Vzh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="w1N-c5-SeS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LAa-QT-Vzh" secondAttribute="trailing" constant="16" id="zfB-VP-83v"/>
                         </constraints>
@@ -102,6 +111,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="copyText" destination="meb-1o-2iA" id="sOF-yT-zfM"/>
                         <outlet property="imageTest" destination="Fru-4U-vbB" id="M7m-f7-OQa"/>
                         <outlet property="saveDataPressed" destination="MMK-zY-Y5J" id="O5W-9o-sPF"/>
                         <outlet property="stringTest" destination="LAa-QT-Vzh" id="BKJ-Mo-sbQ"/>
@@ -253,8 +263,14 @@
                                 <action selector="backButtonPressed:" destination="zMO-39-GeD" id="wzU-XI-YcX"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Copy Text" id="W35-Hf-wAe">
+                            <connections>
+                                <action selector="copyTextPressed:" destination="zMO-39-GeD" id="Lp2-hl-3qo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="copyText" destination="W35-Hf-wAe" id="bC5-GQ-4TT"/>
                         <outlet property="deleteButton" destination="k6O-cN-6UJ" id="YUa-Vn-H4L"/>
                         <outlet property="imageLabel" destination="36b-zq-7KJ" id="aad-8S-DWc"/>
                         <outlet property="langLabel" destination="19i-wL-ZZ5" id="nN3-8x-0I0"/>
@@ -264,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkG-J4-Ij0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5022" y="233"/>
+            <point key="canvasLocation" x="4775" y="263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3qx-kp-rAT">
@@ -417,7 +433,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcq-1R-hvY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2519" y="420"/>
+            <point key="canvasLocation" x="3183" y="750"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SjU-Fy-anR">
